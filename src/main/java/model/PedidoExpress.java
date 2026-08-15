@@ -23,7 +23,8 @@ public class PedidoExpress extends Pedido {
                     ": Repartidor " + nombreRepartidor +
                     " asignado correctamente.";
         }
-        return "Pedido  nro" + getIdPedido() + ": No se puede asignar a " + nombreRepartidor +
+        return "Pedido  nro " + getIdPedido() + ":" + " Falló" + "\n" +
+                "No se puede asignar a " + nombreRepartidor +
                 " porque no tiene disponibilidad inmediata.";
     }
 }

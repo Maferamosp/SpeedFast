@@ -29,12 +29,19 @@ public class Main {
                 true
         );
 
+        System.out.println("Asignando repartidor para el pedido de comida ....");
         System.out.println(pedidoComida.asignarRepartidor("Maria")
         );
 
+        System.out.println("===========================================");
+
+        System.out.println("Asignando repartidor para el pedido de Encomienda ....");
         System.out.println(pedidoEncomienda.asignarRepartidor("Fernanda")
         );
 
+        System.out.println("===========================================");
+
+        System.out.println("Asignando repartidor para el pedido de Express ....");
         System.out.println(pedidoExpress.asignarRepartidor("Max"));
     }
 }
