@@ -5,8 +5,8 @@ import java.util.Objects;
 public class PedidoEncomienda extends Pedido {
     private int medidasEnCm;
 
-    public PedidoEncomienda(int idPedido, String tipoDePedido, String direccionEntrega, int medidasEnCm) {
-        super(idPedido, tipoDePedido, direccionEntrega);
+    public PedidoEncomienda(int idPedido, String tipoDePedido, String direccionEntrega, int medidasEnCm, int disatanciaKm) {
+        super(idPedido, tipoDePedido, direccionEntrega, disatanciaKm);
         this.medidasEnCm = medidasEnCm;
     }
 
@@ -24,5 +24,10 @@ public class PedidoEncomienda extends Pedido {
         }
         return "Pedido  nro" + getIdPedido() + ": No se puede asignar a " + nombreRepartidor +
                 " porque el tamaño del paquete es superior al permitido";
+    }
+
+    @Override
+    public int calcularTiempoDeEntrega() {
+        return (int) Math.round(20 + (1.5 * getDisatanciaKm()));
     }
 }

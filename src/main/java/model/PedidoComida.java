@@ -5,8 +5,8 @@ import java.util.Objects;
 public class PedidoComida extends Pedido {
     private final String tipoDeTransporte;
 
-    public PedidoComida(int idPedido, String tipoDePedido, String direccionEntrega, String tipoDeTransporte) {
-        super(idPedido, tipoDePedido, direccionEntrega);
+    public PedidoComida(int idPedido, String tipoDePedido, String direccionEntrega, String tipoDeTransporte, int disatanciaKm) {
+        super(idPedido, tipoDePedido, direccionEntrega, disatanciaKm);
         this.tipoDeTransporte = tipoDeTransporte;
     }
 
@@ -25,4 +25,10 @@ public class PedidoComida extends Pedido {
         return "Pedido de comida nro" + getIdPedido() + ": No se puede asignar a " + nombreRepartidor +
                 " porque no cuenta con Auto.";
     }
+
+    @Override
+    public int calcularTiempoDeEntrega() {
+        return 15 + (2 * getDisatanciaKm());
+    }
+
 }

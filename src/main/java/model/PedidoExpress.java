@@ -6,8 +6,8 @@ public class PedidoExpress extends Pedido {
     private boolean remesaUrgente;
 
 
-    public PedidoExpress(int idPedido, String tipoDePedido, String direccionEntrega, boolean remesaUrgente) {
-        super(idPedido, tipoDePedido, direccionEntrega);
+    public PedidoExpress(int idPedido, String tipoDePedido, String direccionEntrega, boolean remesaUrgente, int disatanciaKm) {
+        super(idPedido, tipoDePedido, direccionEntrega, disatanciaKm);
         this.remesaUrgente = remesaUrgente;
     }
 
@@ -26,5 +26,16 @@ public class PedidoExpress extends Pedido {
         return "Pedido  nro " + getIdPedido() + ":" + " Falló" + "\n" +
                 "No se puede asignar a " + nombreRepartidor +
                 " porque no tiene disponibilidad inmediata.";
+    }
+
+    @Override
+    public int calcularTiempoDeEntrega() {
+        int tiempoBase = 10;
+
+        if (getDisatanciaKm() > 5) {
+            tiempoBase += 5;
+        }
+
+        return tiempoBase;
     }
 }
