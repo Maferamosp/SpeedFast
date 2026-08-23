@@ -38,4 +38,9 @@ public class PedidoExpress extends Pedido {
 
         return tiempoBase;
     }
+
+    public void mostrarResumen() {
+        int tiempoDeEntregaEncomienda = this.calcularTiempoDeEntrega();
+        System.out.println("El tiempo de entrega estimado es: " + tiempoDeEntregaEncomienda + " min");
+    }
 }

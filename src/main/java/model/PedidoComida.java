@@ -31,4 +31,9 @@ public class PedidoComida extends Pedido {
         return 15 + (2 * getDisatanciaKm());
     }
 
+    public void mostrarResumen() {
+        int tiempoDeEntregaEncomienda = this.calcularTiempoDeEntrega();
+        System.out.println("El tiempo de entrega estimado es: " + tiempoDeEntregaEncomienda + " min");
+    }
+
 }
