@@ -1,9 +1,11 @@
 package model;
 
+import excepciones.RepartidorInvalido;
+
 import java.util.Objects;
 
-public class PedidoExpress extends Pedido {
-    private boolean remesaUrgente;
+public class PedidoExpress extends Pedido implements TareasInterface {
+    private final boolean remesaUrgente;
 
 
     public PedidoExpress(int idPedido, String tipoDePedido, String direccionEntrega, boolean remesaUrgente, int disatanciaKm) {
@@ -23,9 +25,8 @@ public class PedidoExpress extends Pedido {
                     ": Repartidor " + nombreRepartidor +
                     " asignado correctamente.";
         }
-        return "Pedido  nro " + getIdPedido() + ":" + " Falló" + "\n" +
-                "No se puede asignar a " + nombreRepartidor +
-                " porque no tiene disponibilidad inmediata.";
+
+        throw new RepartidorInvalido("Pedido inválido");
     }
 
     @Override

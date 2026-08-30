@@ -1,4 +1,7 @@
 package model;
 
-public interface Rastreable {
+import java.util.List;
+
+public interface RastreableInterface {
+    public List<Integer> verHistorial();
 }

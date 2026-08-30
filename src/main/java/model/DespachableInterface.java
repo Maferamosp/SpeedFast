@@ -1,4 +1,5 @@
 package model;
 
-public interface Despachable {
+public interface DespachableInterface {
+    public String despachar(int idPedido);
 }

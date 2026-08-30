@@ -1,4 +1,5 @@
 package model;
 
-public interface Cancelable {
+public interface CancelableInterface {
+    public String cancelar(int idPedido);
 }

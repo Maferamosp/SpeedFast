@@ -1,10 +1,17 @@
 package model;
 
+import excepciones.PedidoDuplicado;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Objects;
+
 public abstract class Pedido implements TareasInterface {
     private String tipoDePedido;
     private int idPedido;
     private String direccionEntrega;
     private int disatanciaKm;
+    private List<Integer> idsPedidosExitosos = new ArrayList<>();
 
     public Pedido(int idPedido, String tipoDePedido, String direccionEntrega, int disatanciaKm) {
         this.tipoDePedido = tipoDePedido;

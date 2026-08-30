@@ -2,7 +2,7 @@ package model;
 
 import java.util.Objects;
 
-public class PedidoComida extends Pedido {
+public class PedidoComida extends Pedido implements TareasInterface {
     private final String tipoDeTransporte;
 
     public PedidoComida(int idPedido, String tipoDePedido, String direccionEntrega, String tipoDeTransporte, int disatanciaKm) {

@@ -2,8 +2,8 @@ package model;
 
 import java.util.Objects;
 
-public class PedidoEncomienda extends Pedido {
-    private int medidasEnCm;
+public class PedidoEncomienda extends Pedido  implements TareasInterface {
+    private final int medidasEnCm;
 
     public PedidoEncomienda(int idPedido, String tipoDePedido, String direccionEntrega, int medidasEnCm, int disatanciaKm) {
         super(idPedido, tipoDePedido, direccionEntrega, disatanciaKm);
