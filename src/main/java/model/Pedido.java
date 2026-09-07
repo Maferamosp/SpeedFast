@@ -1,23 +1,16 @@
 package model;
 
-import excepciones.PedidoDuplicado;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-
 public abstract class Pedido implements TareasInterface {
     private String tipoDePedido;
     private int idPedido;
     private String direccionEntrega;
-    private int disatanciaKm;
-    private List<Integer> idsPedidosExitosos = new ArrayList<>();
+    private int distanciaKm;
 
-    public Pedido(int idPedido, String tipoDePedido, String direccionEntrega, int disatanciaKm) {
+    public Pedido(int idPedido, String tipoDePedido, String direccionEntrega, int distanciaKm) {
         this.tipoDePedido = tipoDePedido;
         this.idPedido = idPedido;
         this.direccionEntrega = direccionEntrega;
-        this.disatanciaKm = disatanciaKm;
+        this.distanciaKm = distanciaKm;
     }
 
     public int getIdPedido() {
@@ -32,8 +25,8 @@ public abstract class Pedido implements TareasInterface {
         return tipoDePedido;
     }
 
-    public int getDisatanciaKm() {
-        return disatanciaKm;
+    public int getDistanciaKm() {
+        return distanciaKm;
     }
 
     public void setDireccionEntrega(String direccionEntrega) {
@@ -48,8 +41,8 @@ public abstract class Pedido implements TareasInterface {
         this.tipoDePedido = tipoDePedido;
     }
 
-    public void setDisatanciaKm(int disatanciaKm) {
-        this.disatanciaKm = disatanciaKm;
+    public void setDistanciaKm(int distanciaKm) {
+        this.distanciaKm = distanciaKm;
     }
 
     public void mostrarResumen() {
@@ -57,7 +50,7 @@ public abstract class Pedido implements TareasInterface {
         System.out.println("Pedido de comida nro: " + idPedido + "\n");
         System.out.println("Tipo de pedido: " + tipoDePedido + "\n");
         System.out.println("Direccion de entrega: " + direccionEntrega + "\n");
-        System.out.println("Distancia en KM: " + disatanciaKm);
+        System.out.println("Distancia en KM: " + distanciaKm);
     }
 
     @Override
@@ -65,7 +58,7 @@ public abstract class Pedido implements TareasInterface {
         return "Pedido de comida nro: " + idPedido + "\n" +
                 "Tipo de pedido: " + tipoDePedido + "\n" +
                 "Direccion de entrega: " + direccionEntrega + "\n" +
-                "Distancia en KM: " + disatanciaKm;
+                "Distancia en KM: " + distanciaKm;
     }
 
     @Override

@@ -1,7 +1,5 @@
 package model;
 
-import java.util.Objects;
-
 public class PedidoEncomienda extends Pedido  implements TareasInterface {
     private final int medidasEnCm;
 
@@ -28,11 +26,19 @@ public class PedidoEncomienda extends Pedido  implements TareasInterface {
 
     @Override
     public int calcularTiempoDeEntrega() {
-        return (int) Math.round(20 + (1.5 * getDisatanciaKm()));
+        return (int) Math.round(20 + (1.5 * getDistanciaKm()));
     }
 
+    @Override
     public void mostrarResumen() {
-        int tiempoDeEntregaEncomienda = this.calcularTiempoDeEntrega();
-        System.out.println("El tiempo de entrega estimado es: " + tiempoDeEntregaEncomienda + " min");
+        int tiempoDeEntrega = this.calcularTiempoDeEntrega();
+
+        System.out.println("-------- RESUMEN DEL PEDIDO --------");
+        System.out.println("Número de pedido: " + getIdPedido());
+        System.out.println("Tipo de pedido: " + getTipoDePedido());
+        System.out.println("Dirección de entrega: " + getDireccionEntrega());
+        System.out.println("Distancia: " + getDistanciaKm() + " km");
+        System.out.println("Tiempo de entrega estimado: " + tiempoDeEntrega + " minutos");
+        System.out.println("------------------------------------");
     }
 }

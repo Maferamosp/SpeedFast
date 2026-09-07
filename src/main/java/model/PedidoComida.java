@@ -28,12 +28,20 @@ public class PedidoComida extends Pedido implements TareasInterface {
 
     @Override
     public int calcularTiempoDeEntrega() {
-        return 15 + (2 * getDisatanciaKm());
+        return 15 + (2 * getDistanciaKm());
     }
 
+    @Override
     public void mostrarResumen() {
-        int tiempoDeEntregaEncomienda = this.calcularTiempoDeEntrega();
-        System.out.println("El tiempo de entrega estimado es: " + tiempoDeEntregaEncomienda + " min");
+        int tiempoDeEntrega = this.calcularTiempoDeEntrega();
+
+        System.out.println("-------- RESUMEN DEL PEDIDO --------");
+        System.out.println("Número de pedido: " + getIdPedido());
+        System.out.println("Tipo de pedido: " + getTipoDePedido());
+        System.out.println("Dirección de entrega: " + getDireccionEntrega());
+        System.out.println("Distancia: " + getDistanciaKm() + " km");
+        System.out.println("Tiempo de entrega estimado: " + tiempoDeEntrega + " minutos");
+        System.out.println("------------------------------------");
     }
 
 }

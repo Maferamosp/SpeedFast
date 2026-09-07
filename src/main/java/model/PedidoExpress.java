@@ -33,15 +33,23 @@ public class PedidoExpress extends Pedido implements TareasInterface {
     public int calcularTiempoDeEntrega() {
         int tiempoBase = 10;
 
-        if (getDisatanciaKm() > 5) {
+        if (getDistanciaKm() > 5) {
             tiempoBase += 5;
         }
 
         return tiempoBase;
     }
 
+    @Override
     public void mostrarResumen() {
-        int tiempoDeEntregaEncomienda = this.calcularTiempoDeEntrega();
-        System.out.println("El tiempo de entrega estimado es: " + tiempoDeEntregaEncomienda + " min");
+        int tiempoDeEntrega = this.calcularTiempoDeEntrega();
+
+        System.out.println("-------- RESUMEN DEL PEDIDO --------");
+        System.out.println("Número de pedido: " + getIdPedido());
+        System.out.println("Tipo de pedido: " + getTipoDePedido());
+        System.out.println("Dirección de entrega: " + getDireccionEntrega());
+        System.out.println("Distancia: " + getDistanciaKm() + " km");
+        System.out.println("Tiempo de entrega estimado: " + tiempoDeEntrega + " minutos");
+        System.out.println("------------------------------------");
     }
 }
