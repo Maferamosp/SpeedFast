@@ -3,13 +3,13 @@ package org.example;
 import excepciones.RepartidorInvalido;
 import model.*;
 
-import java.util.Arrays;
 import java.util.List;
 
 public class Main {
 
     public static void main(String[] args) {
         ControladorDeEnvios controladorDeEnvios = new ControladorDeEnvios();
+        ZonaDeCarga zonaDeCarga = new ZonaDeCarga();
 
         // creacion de pedidos
         PedidoComida pedidoComida = new PedidoComida(
@@ -76,36 +76,28 @@ public class Main {
         controladorDeEnvios.despachar(pedidoEncomienda2.getIdPedido());
         controladorDeEnvios.despachar(pedidoExpress2.getIdPedido());
 
-        // asignar pedidos
-        List<Pedido> pedidosMaria = Arrays.asList(
-                pedidoComida,
-                pedidoExpress
-        );
+        // agregar pedidos a la zona de carga compartida
+        zonaDeCarga.agregarPedido(pedidoComida);
+        zonaDeCarga.agregarPedido(pedidoEncomienda);
+        zonaDeCarga.agregarPedido(pedidoExpress);
+        zonaDeCarga.agregarPedido(pedidoComida2);
+        zonaDeCarga.agregarPedido(pedidoEncomienda2);
+        zonaDeCarga.agregarPedido(pedidoExpress2);
 
-        List<Pedido> pedidosFernanda = Arrays.asList(
-                pedidoEncomienda,
-                pedidoComida2
-        );
-
-        List<Pedido> pedidosMax = Arrays.asList(
-                pedidoEncomienda2,
-                pedidoExpress2
-        );
-
-        // asignar repartidores
+        // asignar repartidores, todos retiran desde la misma zona de carga
         Repartidor maria = new Repartidor(
                 "Maria",
-                pedidosMaria
+                zonaDeCarga
         );
 
         Repartidor fernanda = new Repartidor(
                 "Fernanda",
-                pedidosFernanda
+                zonaDeCarga
         );
 
         Repartidor max = new Repartidor(
                 "Max",
-                pedidosMax
+                zonaDeCarga
         );
 
         // crear los hilos
@@ -132,6 +124,8 @@ public class Main {
         System.out.println("HISTORIAL DE ENTREGAS");
         verHistorialDePedidosExitosos(controladorDeEnvios);
 
+        System.out.println("\n");
+        System.out.println("Todos los pedidos han sido entregados correctamente");
     }
 
     public static void asignacionDePedidos(PedidoComida pedidoComida, PedidoExpress pedidoExpress, PedidoEncomienda pedidoEncomienda, ControladorDeEnvios controladorDeEnvios) {
