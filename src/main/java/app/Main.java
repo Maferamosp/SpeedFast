@@ -1,13 +1,19 @@
-package org.example;
+package app;
 
 import excepciones.RepartidorInvalido;
+import gui.VentanaPrincipal;
 import model.*;
 
 import java.util.List;
 
 public class Main {
-
     public static void main(String[] args) {
+        new VentanaPrincipal().setVisible(true);
+
+        ejecucionDesdeLaTerminal();
+    }
+
+    public static void ejecucionDesdeLaTerminal() {
         ControladorDeEnvios controladorDeEnvios = new ControladorDeEnvios();
         ZonaDeCarga zonaDeCarga = new ZonaDeCarga();
 

@@ -25,6 +25,8 @@ public class Repartidor implements Runnable {
 
                 System.out.println("La entrega del pedido " + pedido.getIdPedido() + " fue interrumpida."
                 );
+
+                break;
             }
 
             pedido.setEstado(EstadoPedido.ENTREGADO);
