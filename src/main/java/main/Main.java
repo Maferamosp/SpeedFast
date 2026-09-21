@@ -1,7 +1,7 @@
-package app;
+package main;
 
 import excepciones.RepartidorInvalido;
-import gui.VentanaPrincipal;
+import app.VentanaPrincipal;
 import model.*;
 
 import java.util.List;
